@@ -48,3 +48,26 @@
     height: 7%;
     background-color: #8dd9fb;
 }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+}
+
+.message {
+    padding: 10px;
+    max-width: 40%;
+    word-wrap: break-word;
+    border-radius: 15px;
+
+}
+
+.user {
+    background-color: #d4f8b9;
+    float: right;
+}
+
+.friend {
+    background-color: white;
+    float: left;
+}
