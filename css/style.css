@@ -25,7 +25,7 @@
 }
 
 .main-section {
-    height: 121px;
+    height: 130px;
 }
 
 .bottom-section {
@@ -39,14 +39,18 @@
 }
 
 .contact-section {
-    height: calc(100% - 90px - 121px);
+    height: calc(100% - 220px);
 }
 
 
 
 .notifications {
-
+    height: 65px;
     background-color: #8dd9fb;
+}
+
+.h-65 {
+    height: 65px;
 }
 
 .message {
