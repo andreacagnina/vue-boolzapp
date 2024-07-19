@@ -19,26 +19,30 @@
     height: 100%;
 }
 
-.top-section,
-.bottom-section {
+.top-section {
     background-color: #e9e9e9;
     height: 90px;
 }
 
+.main-section {
+    height: 121px;
+}
+
+.bottom-section {
+    background-color: #e9e9e9;
+    height: 70px;
+}
+
 .middle-section {
     background-image: url(/img/mine.jpg);
-    height: calc(100% - 90px - 90px);
-    overflow-y: auto;
+    height: calc(100% - 90px - 70px);
 }
 
-.main-section {
-    height: 90%;
+.contact-section {
+    height: calc(100% - 90px - 121px);
 }
 
 
-.input-group {
-    height: 5%;
-}
 
 .notifications {
 
