@@ -10,6 +10,41 @@
 
 .col-4,
 .col-8 {
-    border: 1px solid rgb(255, 15, 15);
+    border: 1px solid #dcdcdc;
     height: 900px;
+    padding: 0;
+}
+
+.content {
+    height: 100%;
+}
+
+.top-section,
+.bottom-section {
+    background-color: #e9e9e9;
+    height: 10%;
+}
+
+.middle-section {
+    background-image: url(/img/mine.jpg);
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.main-section {
+    height: 90%;
+}
+
+.chat-list {
+    overflow-y: scroll;
+    height: 88%
+}
+
+.input-group {
+    height: 5%;
+}
+
+.notifications {
+    height: 7%;
+    background-color: #8dd9fb;
 }
