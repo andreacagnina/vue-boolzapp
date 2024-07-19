@@ -52,7 +52,8 @@
                             <div class="contact-section bg-white flex-grow-1">
                                 <div class="chat-list">
                                     <ul class="list-group list-group-flush">
-                                        <li v-for="contact in contacts" class="list-group-item list-group-item-action">
+                                        <li v-for="(contact, i) in contacts"
+                                            class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
                                                     <img :src="contact.avatar" alt="Avatar" class="avatar">
@@ -95,22 +96,20 @@
                                     <div> <i class="fa-solid fa-ellipsis-vertical"></i></div>
                                 </div>
                             </div>
-                            <div class="middle-section px-5 py-4">
+                            <div class="middle-section px-5 py-4" v-for="(user, i) in contacts">
                                 <div class="conversation">
-                                    <div class="d-flex my-2">
-                                        <div class="message user ms-auto">Hai portato a spasso il cane?
-                                        </div>
-                                    </div>
-                                    <div class="d-flex my-2">
-                                        <div class="message user ms-auto">Ricordati di stendere i panni
+
+                                    <div class="d-flex flex-column my-2">
+                                        <div
+                                            :class="(user.messages[0].status == 'sent')?'message user ms-auto p-2':'message friend p-2'">
+
+                                            {{user.messages[1].date}}
+
+
                                         </div>
                                     </div>
 
-                                    <div class="my-2">
-                                        <div class="message friend">Tutto fatto!
-                                        </div>
 
-                                    </div>
                                 </div>
                             </div>
                             <div class="bottom-section p-3">

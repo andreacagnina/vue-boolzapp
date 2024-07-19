@@ -18,7 +18,7 @@
 
 .top-section {
     background-color: #e9e9e9;
-    height: 90px;
+    height: 70px;
 }
 
 .main-section {
@@ -31,13 +31,13 @@
 }
 
 .middle-section {
-    background-image: url(/img/mine.jpg);
-    height: calc(100% - 90px - 70px);
+    background-color: #d1dada;
+    height: calc(100% - 70px - 70px);
     overflow-y: auto;
 }
 
 .contact-section {
-    height: calc(100% - 220px);
+    height: calc(100% - 200px);
     overflow-y: auto;
 }
 
@@ -51,7 +51,6 @@
 }
 
 .message {
-    padding: 10px;
     max-width: 40%;
     word-wrap: break-word;
     border-radius: 15px;

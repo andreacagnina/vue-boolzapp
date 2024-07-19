@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            userActive: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -171,6 +172,10 @@ const app = Vue.createApp({
                     ],
                 }
             ]
+        }
+    }, methods: {
+        scrollUser(Index) {
+            this.userActive = Index;
         }
     }
 })
