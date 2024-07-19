@@ -35,7 +35,7 @@
                             <div class="main-section">
                                 <div class="notifications p-2 px-3">
                                     <div class="d-flex align-items-center">
-                                        <img src="./img/bell-slash-solid (1).svg" alt="Avatar" class="avatar">
+                                        <img src="./img/bell-slash-solid (1).svg" alt="Avatar" class="avatar p-2">
                                         <div class="m-1">
                                             <h6 class="m-0">Ricevi notifiche di nuovi messaggi</h6>
                                             <p class="text-decoration-underline m-0">Attiva notifiche desktop</p>
@@ -52,13 +52,13 @@
                             <div class="contact-section bg-white flex-grow-1">
                                 <div class="chat-list">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
+                                        <li v-for="contact in contacts" class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                    <img src="./img/avatar_io.jpg" alt="Avatar" class="avatar">
+                                                    <img :src="contact.avatar" alt="Avatar" class="avatar">
                                                     <div class="d-flex">
                                                         <div class=" mx-3">
-                                                            <h5 class="m-0">Sofia</h5>
+                                                            <h5 class="m-0">{{contact.name}}</h5>
                                                             <p class="m-0">Ultimo messaggio inviato</p>
                                                         </div>
                                                     </div>

@@ -43,7 +43,6 @@
 }
 
 
-
 .notifications {
     height: 65px;
     background-color: #8dd9fb;
@@ -77,4 +76,10 @@
     height: 50px;
     border-radius: 50%;
     background-color: white;
+}
+
+
+
+li:hover {
+    cursor: pointer;
 }
