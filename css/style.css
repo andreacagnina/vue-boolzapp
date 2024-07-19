@@ -1,6 +1,6 @@
 .wrapper {
     height: 100vh;
-    background-image: linear-gradient(#009587 15%, #dbdad0 10%, #d1dada 90%);
+    background-image: linear-gradient(#009587 150px, #dbdad0 150px, #d1dada);
     padding: 30px 0;
 
 }
@@ -43,7 +43,6 @@
 
 
 .notifications {
-
     background-color: #8dd9fb;
 }
 
