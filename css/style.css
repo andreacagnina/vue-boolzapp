@@ -4,10 +4,6 @@
 
 }
 
-.container {
-    height: 900px;
-}
-
 .col-4,
 .col-8 {
     border: 1px solid #dcdcdc;
@@ -44,7 +40,7 @@
 
 
 .notifications {
-    height: 65px;
+
     background-color: #8dd9fb;
 }
 
