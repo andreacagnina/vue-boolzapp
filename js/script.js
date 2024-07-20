@@ -190,6 +190,17 @@ const app = Vue.createApp({
             const [data, time] = dateSplit.split(' ');
             return data;
         },
+        addNewMessage() {
+            if (this.NewMessage != null) {
+                let newSent = {
+                    date: null,
+                    message: this.NewMessage,
+                    status: 'sent',
+                }
+                this.contacts.push(newSent)
+                this.NewMessage = null
+            }
+        },
     }
 });
 

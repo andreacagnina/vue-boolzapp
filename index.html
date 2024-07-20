@@ -86,7 +86,7 @@
                                     <img :src="contacts[activeContactIndex].avatar" alt="Avatar" class="avatar">
                                     <div class="mx-3">
                                         <h5 class="m-0">{{contacts[activeContactIndex].name}}</h5>
-                                        <p class="m-0">Ultimo accesso</p>
+                                        <p class="m-0">Ultimo accesso oggi alle 12:00</p>
                                     </div>
 
                                 </div>
@@ -114,7 +114,8 @@
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                                             class="fa-regular fa-face-smile"></i></button>
-                                    <input type="text" class="form-control" placeholder="Scrivi un messaggio"
+                                    <input v-model="NewMessage" @keyup.enter="addNewMessage()" type="text"
+                                        class="form-control" placeholder="Scrivi un messaggio"
                                         aria-label="Scrivi un messaggio" aria-describedby="button-addon2">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon3"><i
                                             class="fa-solid fa-microphone"></i></button>
