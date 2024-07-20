@@ -86,7 +86,7 @@
                                     <img :src="contacts[activeContactIndex].avatar" alt="Avatar" class="avatar">
                                     <div class="mx-3">
                                         <h5 class="m-0">{{contacts[activeContactIndex].name}}</h5>
-                                        <p class="m-0">Ultimo accesso oggi alle 12:00</p>
+                                        <p class="m-0">Ultimo accesso</p>
                                     </div>
 
                                 </div>
@@ -103,7 +103,7 @@
                                             :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
 
                                             <p class="m-0">{{message.message}}</p>
-                                            <p class="m-0 fw-lighter text-end">{{message.date}}</p>
+                                            <p class="m-0 fw-lighter text-end">{{getTime(message.date)}}</p>
 
                                         </div>
                                     </div>

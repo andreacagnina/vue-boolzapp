@@ -3,6 +3,7 @@ const app = Vue.createApp({
         return {
             activeContactIndex: 0,
 
+
             contacts: [
                 {
                     name: 'Michele',
@@ -178,11 +179,19 @@ const app = Vue.createApp({
     computed: {
         activeContactMessages() {
             return this.contacts[this.activeContactIndex].messages;
-        }
-
+        },
+    },
+    methods: {
+        getTime(timeSplit) {
+            const [data, time] = timeSplit.split(' ');
+            return time;
+        },
+        getDate(dateSplit) {
+            const [data, time] = dateSplit.split(' ');
+            return data;
+        },
     }
 });
 
 app.mount('#app')
 
-console.log()
