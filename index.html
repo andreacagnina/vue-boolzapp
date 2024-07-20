@@ -18,20 +18,23 @@
         <div class="wrapper">
             <div class="container">
                 <div class="row">
+                    <!-- SEZIONE LATERALE -->
                     <div class="col-4">
                         <div class="content">
+                            <!-- ICONA AVATAR USER  -->
                             <div class="top-section d-flex align-items-center p-3">
                                 <div class="d-flex align-items-center flex-grow-1">
                                     <img src="./img/avatar_io.jpg" alt="Avatar" class="avatar">
                                     <h5>Sofia</h5>
                                 </div>
+                                <!-- ICONE LATERALI USER -->
                                 <div class="d-flex">
                                     <div><i class="fa-solid fa-circle-notch"></i></div>
                                     <div class="mx-4"><i class="fa-solid fa-message"></i></div>
                                     <div> <i class="fa-solid fa-ellipsis-vertical"></i></div>
                                 </div>
                             </div>
-
+                            <!-- SEZIONE NOTIFICHE -->
                             <div class="main-section">
                                 <div class="notifications p-2 px-3 h-65">
                                     <div class="d-flex align-items-center">
@@ -42,20 +45,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- SEZIONE RICERCA CHAT CONTATTI -->
                                 <div class="input-group flex-nowrap p-3 bg-body-tertiary h-65">
                                     <span class="input-group-text" id="addon-wrapping">🔍</span>
                                     <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
                                         aria-label="search" aria-describedby="addon-wrapping">
                                 </div>
                             </div>
-
+                            <!-- CHAT CONTATTI -->
                             <div class="contact-section bg-white flex-grow-1">
                                 <div class="chat-list">
                                     <ul class="list-group list-group-flush">
+                                        <!-- V-FOR -->
                                         <li v-for="(contact, i) in contacts" @click="activeContactIndex = i"
                                             class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
+                                                    <!-- AVATAR E NOME CONTATTI -->
                                                     <img :src="contact.avatar" alt="Avatar" class="avatar">
                                                     <div class="d-flex">
                                                         <div class=" mx-3">
@@ -64,23 +70,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- ORA ULTIMO MESSAGGIO -->
                                                 <div class="text-end">
                                                     <p>12:00</p>
                                                 </div>
                                             </div>
                                         </li>
-
                                     </ul>
                                 </div>
                             </div>
-
-
                         </div>
-
-
                     </div>
+                    <!-- SEZIONE PRINCIPALE -->
                     <div class="col-8">
                         <div class="content">
+                            <!-- AVATAR CHAT CONTATTO ATTIVO  -->
                             <div class="top-section d-flex align-items-center p-3">
                                 <div class="d-flex align-items-center flex-grow-1">
                                     <img :src="contacts[activeContactIndex].avatar" alt="Avatar" class="avatar">
@@ -88,42 +92,40 @@
                                         <h5 class="m-0">{{contacts[activeContactIndex].name}}</h5>
                                         <p class="m-0">Ultimo accesso oggi alle 12:00</p>
                                     </div>
-
                                 </div>
+                                <!-- ICONE CHAT CONTATTO ATTIVO -->
                                 <div class="d-flex">
                                     <div><i class="fa-solid fa-magnifying-glass"></i></div>
                                     <div class="mx-4"><i class="fa-solid fa-paperclip"></i></div>
                                     <div> <i class="fa-solid fa-ellipsis-vertical"></i></div>
                                 </div>
                             </div>
+                            <!-- SEZIONE MESSAGGISTICA -->
                             <div class="middle-section px-5 py-4">
                                 <div class="conversation">
                                     <div class="d-flex flex-column my-2">
+                                        <!-- V-FOR -->
                                         <div v-for="message in activeContactMessages"
                                             :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
-
                                             <p class="m-0">{{message.message}}</p>
-                                            <!-- <p class="m-0 fw-lighter text-end">{{getTime(message.date)}}</p> -->
-                                            <p class="m-0 fw-lighter text-end">{{message.date}}</p>
-
+                                            <p class="m-0 fw-lighter text-end">{{getTime(message.date)}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- SEZIONE INVIO NUOVO MESSAGGIO -->
                             <div class="bottom-section p-3">
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                                             class="fa-regular fa-face-smile"></i></button>
+                                    <!-- V-MODEL -->
                                     <input v-model="NewMessage" @keyup.enter="addNewMessage()" type="text"
                                         class="form-control" placeholder="Scrivi un messaggio"
                                         aria-label="Scrivi un messaggio" aria-describedby="button-addon2">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon3"><i
                                             class="fa-solid fa-microphone"></i></button>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -137,7 +139,7 @@
     </div>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>

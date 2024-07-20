@@ -1,3 +1,5 @@
+const { DateTime } = luxon;
+
 const app = Vue.createApp({
     data() {
         return {
@@ -176,24 +178,39 @@ const app = Vue.createApp({
             ],
         };
     },
+    //     Le espressioni inline di Vue.js sono molto comode, ma i casi d'uso migliori per esse sono semplici operazioni booleane o concatenazioni di stringhe. Per una logica più complicata, dovresti usare le proprietà calcolate .
+    // Una proprietà calcolata viene utilizzata per descrivere in modo dichiarativo un valore che dipende da altri valori.
     computed: {
         activeContactMessages() {
             return this.contacts[this.activeContactIndex].messages;
         },
     },
     methods: {
-        // getTime(timeSplit) {
-        //     const [data, time] = timeSplit.split(' ');
-        //     return time;
-        // },
-        // getDate(dateSplit) {
-        //     const [data, time] = dateSplit.split(' ');
-        //     return data;
-        // },
+        // RECUPERA LA DATA E L'ORA E FORMATTALE SECONDO LUXON
+        getCurrentDateTime() {
+            const now = DateTime.now();
+            return now.toFormat('dd/MM/yy HH:mm:ss');
+        },
+        // GUARDA MOUNTED SOTTO
+        updateDateTime() {
+            this.currentDateTime = this.getCurrentDateTime();
+        },
+        // PRENDI LA DATA CON L'ORARIO E SPLITTA L'ORARIO
+        getTime(timeSplit) {
+            const [data, time] = timeSplit.split(' ');
+            return time;
+        },
+        // PRENDI LA DATA CON L'ORARIO E SPLITTA LA DATA
+        getDate(dateSplit) {
+            const [data, time] = dateSplit.split(' ');
+            return data;
+        },
+        // AGGIUNGI UN NUOVO MESSAGGIO E PUSH IN MESSAGES
         addNewMessage() {
             if (this.NewMessage != null) {
                 let newSent = {
-                    date: new Date().getHours(),
+                    // RICHIAMO DELLA FUNZIONE LUXON PER OTTENERE IL TEMPO
+                    date: this.getCurrentDateTime(),
                     message: this.NewMessage,
                     status: 'sent',
                 }
@@ -201,6 +218,11 @@ const app = Vue.createApp({
                 this.NewMessage = null
             }
         },
+    },
+    // PRENDI L'ORA CORRENTE OGNI SECONDO
+    mounted() {
+        this.updateDateTime();
+        setInterval(this.updateDateTime, 1000);
     }
 });
 
