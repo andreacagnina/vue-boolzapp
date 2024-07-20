@@ -52,7 +52,7 @@
                             <div class="contact-section bg-white flex-grow-1">
                                 <div class="chat-list">
                                     <ul class="list-group list-group-flush">
-                                        <li v-for="(contact, i) in contacts"
+                                        <li v-for="(contact, i) in contacts" @click="activeContactIndex = i"
                                             class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
@@ -83,9 +83,9 @@
                         <div class="content">
                             <div class="top-section d-flex align-items-center p-3">
                                 <div class="d-flex align-items-center flex-grow-1">
-                                    <img src="./img/avatar_io.jpg" alt="Avatar" class="avatar">
+                                    <img :src="contacts[activeContactIndex].avatar" alt="Avatar" class="avatar">
                                     <div class="mx-3">
-                                        <h5 class="m-0">Sofia</h5>
+                                        <h5 class="m-0">{{contacts[activeContactIndex].name}}</h5>
                                         <p class="m-0">Ultimo accesso oggi alle 12:00</p>
                                     </div>
 
@@ -102,30 +102,14 @@
                                         <div v-for="message in activeContactMessages"
                                             :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
 
-
-                                            {{message.message}}
-
+                                            <p class="m-0">{{message.message}}</p>
+                                            <p class="m-0 fw-lighter text-end">{{message.date}}</p>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="middle-section px-5 py-4">
-                                <div class="conversation">
-                                    <div v-for="(contact, i) in contacts" class="d-flex flex-column my-2">
-                                        <div v-for="message in contact.messages"
-                                            :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
 
-
-                                            {{message.message}}
-
-
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div> -->
                             <div class="bottom-section p-3">
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
