@@ -103,7 +103,8 @@
                                             :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
 
                                             <p class="m-0">{{message.message}}</p>
-                                            <p class="m-0 fw-lighter text-end">{{getTime(message.date)}}</p>
+                                            <!-- <p class="m-0 fw-lighter text-end">{{getTime(message.date)}}</p> -->
+                                            <p class="m-0 fw-lighter text-end">{{message.date}}</p>
 
                                         </div>
                                     </div>

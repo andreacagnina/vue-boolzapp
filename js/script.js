@@ -182,22 +182,22 @@ const app = Vue.createApp({
         },
     },
     methods: {
-        getTime(timeSplit) {
-            const [data, time] = timeSplit.split(' ');
-            return time;
-        },
-        getDate(dateSplit) {
-            const [data, time] = dateSplit.split(' ');
-            return data;
-        },
+        // getTime(timeSplit) {
+        //     const [data, time] = timeSplit.split(' ');
+        //     return time;
+        // },
+        // getDate(dateSplit) {
+        //     const [data, time] = dateSplit.split(' ');
+        //     return data;
+        // },
         addNewMessage() {
             if (this.NewMessage != null) {
                 let newSent = {
-                    date: null,
+                    date: new Date().getHours(),
                     message: this.NewMessage,
                     status: 'sent',
                 }
-                this.contacts.push(newSent)
+                this.contacts[this.activeContactIndex].messages.push(newSent)
                 this.NewMessage = null
             }
         },
