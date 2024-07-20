@@ -205,7 +205,7 @@ const app = Vue.createApp({
             const [data, time] = dateSplit.split(' ');
             return data;
         },
-        // AGGIUNGI UN NUOVO MESSAGGIO E PUSH IN MESSAGES
+        // AGGIUNGI UN NUOVO MESSAGGIO E PUSH IN MESSAGES e RICEVI LA RISPOSTA DAL CONTATTO DOPO 1 SECONDO
         addNewMessage() {
             if (this.NewMessage != null) {
                 let newSent = {
@@ -214,17 +214,28 @@ const app = Vue.createApp({
                     message: this.NewMessage,
                     status: 'sent',
                 }
+                setTimeout(this.receiveNewMessage, 1000);
                 this.contacts[this.activeContactIndex].messages.push(newSent)
                 this.NewMessage = null
             }
         },
+        // RICEVI UN MESSAGGIO DI RISPOSTA
+        receiveNewMessage() {
+            let answer = {
+                date: this.getCurrentDateTime(),
+                message: 'Ciao Sofia, guarda che non so più come dirtelo, non so io il padre...Non contattarmi più!',
+                status: 'received',
+            }
+            this.contacts[this.activeContactIndex].messages.push(answer)
+        },
     },
+
     // PRENDI L'ORA CORRENTE OGNI SECONDO
     mounted() {
         this.updateDateTime();
         setInterval(this.updateDateTime, 1000);
-    }
+    },
 });
 
-app.mount('#app')
+app.mount('#app');
 
