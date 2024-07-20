@@ -96,14 +96,28 @@
                                     <div> <i class="fa-solid fa-ellipsis-vertical"></i></div>
                                 </div>
                             </div>
-                            <div class="middle-section px-5 py-4" v-for="(user, i) in contacts">
+                            <div class="middle-section px-5 py-4">
                                 <div class="conversation">
-
                                     <div class="d-flex flex-column my-2">
-                                        <div
-                                            :class="(user.messages[0].status == 'sent')?'message user ms-auto p-2':'message friend p-2'">
+                                        <div v-for="message in activeContactMessages"
+                                            :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
 
-                                            {{user.messages[1].date}}
+
+                                            {{message.message}}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="middle-section px-5 py-4">
+                                <div class="conversation">
+                                    <div v-for="(contact, i) in contacts" class="d-flex flex-column my-2">
+                                        <div v-for="message in contact.messages"
+                                            :class="(message.status == 'sent')?'message user ms-auto p-2 my-1':'message friend p-2 my-1'">
+
+
+                                            {{message.message}}
 
 
                                         </div>
@@ -111,7 +125,7 @@
 
 
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="bottom-section p-3">
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i

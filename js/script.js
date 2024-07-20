@@ -1,7 +1,8 @@
 const app = Vue.createApp({
     data() {
         return {
-            userActive: 0,
+            activeContactIndex: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -171,13 +172,17 @@ const app = Vue.createApp({
                         }
                     ],
                 }
-            ]
+            ],
+        };
+    },
+    computed: {
+        activeContactMessages() {
+            return this.contacts[this.activeContactIndex].messages;
         }
-    }, methods: {
-        scrollUser(Index) {
-            this.userActive = Index;
-        }
+
     }
-})
+});
 
 app.mount('#app')
+
+console.log()
