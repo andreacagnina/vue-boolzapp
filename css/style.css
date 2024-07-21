@@ -19,6 +19,7 @@
 .top-section {
     background-color: #e9e9e9;
     height: 70px;
+
 }
 
 .main-section {
@@ -31,7 +32,7 @@
 }
 
 .middle-section {
-    background-color: #d1dada;
+    background-image: url(/img/mine.jpg);
     height: calc(100% - 70px - 70px);
     overflow-y: auto;
 }

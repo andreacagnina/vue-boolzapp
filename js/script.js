@@ -4,6 +4,7 @@ const app = Vue.createApp({
     data() {
         return {
             activeContactIndex: 0,
+            contactSearch: '',
 
 
             contacts: [
@@ -226,15 +227,21 @@ const app = Vue.createApp({
                 message: 'Ciao Sofia, guarda che non so più come dirtelo, non so io il padre...Non contattarmi più!',
                 status: 'received',
             }
-            this.contacts[this.activeContactIndex].messages.push(answer)
+            this.contacts[this.activeContactIndex].messages.push(answer);
         },
-    },
-
-    // PRENDI L'ORA CORRENTE OGNI SECONDO
-    mounted() {
-        this.updateDateTime();
-        setInterval(this.updateDateTime, 1000);
-    },
+        // RICERCA TRAMITE V-MODEL E VISIBLE TRUE
+        researchContact() {
+            let search = this.contactSearch.toLowerCase();
+            this.contacts.forEach(contact => {
+                contact.visible = contact.name.toLowerCase().includes(search)
+            });
+        },
+        // PRENDI L'ORA CORRENTE OGNI SECONDO
+        mounted() {
+            this.updateDateTime();
+            setInterval(this.updateDateTime, 1000);
+        },
+    }
 });
 
 app.mount('#app');

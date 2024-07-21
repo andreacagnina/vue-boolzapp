@@ -48,8 +48,10 @@
                                 <!-- SEZIONE RICERCA CHAT CONTATTI -->
                                 <div class="input-group flex-nowrap p-3 bg-body-tertiary h-65">
                                     <span class="input-group-text" id="addon-wrapping">🔍</span>
-                                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                                        aria-label="search" aria-describedby="addon-wrapping">
+                                    <!-- V-MODEL RICERCA CONTATTI -->
+                                    <input v-model="contactSearch" type="text" class="form-control"
+                                        placeholder="Cerca o inizia una nuova chat" aria-label="search"
+                                        aria-describedby="addon-wrapping" @input="researchContact">
                                 </div>
                             </div>
                             <!-- CHAT CONTATTI -->
@@ -57,7 +59,8 @@
                                 <div class="chat-list">
                                     <ul class="list-group list-group-flush">
                                         <!-- V-FOR V-CLICK-->
-                                        <li v-for="(contact, i) in contacts" @click="activeContactIndex = i"
+                                        <li v-show="contact.visible" v-for="(contact, i) in contacts"
+                                            @click="activeContactIndex = i"
                                             class="list-group-item list-group-item-action">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
